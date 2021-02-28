@@ -1,0 +1,37 @@
+<form method="POST" id="form">
+    <p>
+        <label><b>Followers:</b></label>
+        <textarea name="followers" id="followers"></textarea>
+    </p>
+    <p>
+        <label><b>Following:</b></label>
+        <textarea name="following" id="following"></textarea>
+    </p>
+    <br>
+    <button type="button" onclick="Sumbit();">Envoyer</button>
+    <br>
+    <p>
+        <label><b>Result:</b></label>
+        <div name="following" id="result"></div>
+    </p>
+</form>
+
+<script type="text/javascript">
+    function Sumbit()
+    {
+        let followers = document.getElementById('followers').value;
+        let following = document.getElementById('following').value;
+        let tab = [];
+
+        followers = followers.split('\n');
+        following = following.split('\n');
+
+        for (let i = 0; i < following.length; i++)
+        {
+            if ( followers.indexOf(following[i]) == -1 ) tab.push(following[i]);
+        }
+
+        document.getElementById('result').innerHTML = tab;
+    }
+
+</script>
